@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+LoRamDot.vcxproj
+*.filters
+LoRamDot.vcxproj.user
+__vm/.LoRamDot.vsarduino.h
+__vm/.examples.vsarduino.h
