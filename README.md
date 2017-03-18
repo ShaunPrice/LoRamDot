@@ -6,10 +6,15 @@ This library is a wrapper for the [Multitech](http://www.multitech.com) [mDot Lo
 
 This library requires the latest version of the [Arduino IDE](https://www.arduino.cc/en/Main/Software) (tested with v1.8.0).
 
+The code was tested on a Genuino 101 board with a TinySine adapter board for the mDot LoRaWan module.
+
+The code uses [The Things Network](https://www.thethingsnetwork.org) for the gateway and backend application to connect to.
+
 ## Usage
 
 The included example sketche will walk you through all of the features of the library to connect to The Things Network.
-Before trying to connect to [The Things Network](https://www.thethingsnetwork.org) you will need to register and create an application and register your mDot nodes with the network.
+Before trying to connect to [The Things Network](https://www.thethingsnetwork.org) you will need to register and create an application and register your mDot nodes with the network. [See here for details](https://www.thethingsnetwork.org/docs/devices/)
 
 ## License
+
 Copyright (c) 2017 [Shaun Price](http://www.priceconsulting.biz). Licensed under the [GNU LESSER GENERAL PUBLIC LICENSE](/COPYING.txt?raw=true).
