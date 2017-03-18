@@ -12,4 +12,4 @@ The included example sketche will walk you through all of the features of the li
 Before trying to connect to [The Things Network](https://www.thethingsnetwork.org) you will need to register and create an application and register your mDot nodes with the network.
 
 ## License
-Copyright (c) 2017 [Shaun Price](https://www.priceconsulting.biz). Licensed under the [GNU LESSER GENERAL PUBLIC LICENSE](/COPYING.txt?raw=true).
+Copyright (c) 2017 [Shaun Price](http://www.priceconsulting.biz). Licensed under the [GNU LESSER GENERAL PUBLIC LICENSE](/COPYING.txt?raw=true).
