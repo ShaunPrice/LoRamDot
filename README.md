@@ -2,7 +2,7 @@
 
 This library is a wrapper for the [Multitech](http://www.multitech.com) [mDot LoRaWan module](http://www.multitech.com/brands/multiconnect-mdot) with [version 2.0.x firmaware AT command set](http://www.multitech.com/documents/publications/manuals/s000643.pdf). The wrapper supports [The Things Network](https://www.thethingsnetwork.org) by providing two functions that match [The Things Network](https://www.thethingsnetwork.org)) Application EUI and App Key settings required to set up the network. 
 
-To install the library into teh Arduino library with the Library Manager download the [LoRamDot.zip](/LoRamDot.zip/?raw=true) file.
+To install the library into the Arduino library with the Library Manager download the [LoRamDot.zip](/LoRamDot.zip/?raw=true) file.
 
 ## Dependencies
 

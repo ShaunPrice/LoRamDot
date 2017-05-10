@@ -13,9 +13,13 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+////////////////////////////////////////////////////////////////
+// IMPORTANT NOTE: This code only works on Arduino board that support multiple hardware serial port such as the Leonardo, 101 and Mega
+//                 To use this code with other boards you will need to use the SoftSerial Libraries (https://www.arduino.cc/en/Reference/softwareSerial)
+////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////
-#define VERSION "0.1.0001"	// Code version (major.minor.build) 
+#define VERSION "0.2.0001"	// Code version (major.minor.build) 
 ////////////////////////////////////////////////////////////////
 //#define DEBUG 1           // Uncomment for debugging.
 							// NOTE: The code will not work with debugging on while not connected to a computer
@@ -29,7 +33,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEBUG_PRINTLN(x)
 #endif
 
-#include <SoftwareSerial.h>
 #include "LoRamDot.h"
 
 // These settings are for connecting to teh Australian TTN Network using an Australian configured 915MHz mDot

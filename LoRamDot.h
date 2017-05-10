@@ -13,11 +13,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-// LoRa.h
+// LoRamDot.h
 
 #ifndef _LORAMDOT_h
-#define _LORAMDOT_h
-
+	#define _LORAMDOT_h
+#endif
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include "arduino.h"
 #else
@@ -134,11 +134,11 @@ const byte WAKE_MODE_STOP_MODE = 1;						// Sleep(ST Micro stop mode)
 
 const String CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="; // Base64 string
 
-class LoRa
+class LoRamDot
 {
 public:
-	LoRa();
-	LoRa(Stream &serial);
+	LoRamDot();
+	LoRamDot(Stream &serial);
 
 	void begin(Stream &serial);
 
@@ -250,8 +250,8 @@ public:
 														//		FORWARD_ERROR_CORRECTION_REDUNDANCY_6_BITS = Sends 6 bits to represent 4 bits.
 														//		FORWARD_ERROR_CORRECTION_REDUNDANCY_7_BITS = Sends 7 bits to represent 4 bits.
 														//		FORWARD_ERROR_CORRECTION_REDUNDANCY_8_BITS = Sends 8 bits to represent 4 bits.
-	boolean CyclicalRedundancyCheck(boolean enabled);			// Enable or disable Cyclical Redundancy Check(CRC) for uplink and downlink packets. Must be enabled to be compliant with LoRaWAN.Packets received with a bad CRC are discarded.
-																// enabled: false = CRC disabled, true = CRC enabled(Default)
+	boolean CyclicalRedundancyCheck(boolean enabled);	// Enable or disable Cyclical Redundancy Check(CRC) for uplink and downlink packets. Must be enabled to be compliant with LoRaWAN.Packets received with a bad CRC are discarded.
+														// enabled: false = CRC disabled, true = CRC enabled(Default)
 	boolean AdaptiveDataRate(boolean enabled);			// Enable or disable adaptive data rate for your device. For more information on Adpative Data Rate, refer to your device's Developer Guide.
 														// enabled: false = ADR disabled (Default), true = ADR enabled
 	boolean TXDataRate(String dataRate);				// Sets the current data rate to use, DR0-DR15 can be entered as input in addition to (7-12) or (SF_7-SF_12).
@@ -364,9 +364,6 @@ private:
 	int _lastCommandStatusId = 0;						// Status ID of the last command (0:OK, 1:TIMED-OUT, 3:INPUT-OUT-OF-RANGE).
 	
 	// Value to receive the Serial incoming data 
-	String _inputString = "";					// String to hold incoming Serial data
-	boolean _stringComplete = false;			// True when the stream has received a full line of data
+	String _inputString = "";							// String to hold incoming Serial data
+	boolean _stringComplete = false;					// True when the stream has received a full line of data
 };
-
-#endif
-

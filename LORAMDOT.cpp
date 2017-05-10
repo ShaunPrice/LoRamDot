@@ -1055,7 +1055,7 @@ boolean LoRamDot::DataPending()
 	if (SendCommand("AT+DP", &l_dataPending))
 		return (l_dataPending == "1") ? true : false;
 	else
-		return "";
+		return NULL;
 }
 
 // Enables or disables waiting for RX windows to expire after sending.
