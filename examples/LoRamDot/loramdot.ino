@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////
-#define VERSION "0.2.0002"	// Code version (major.minor.build) 
+#define VERSION "0.2.0003"	// Code version (major.minor.build) 
 ////////////////////////////////////////////////////////////////
 //#define DEBUG 1           // Uncomment for debugging.
 							// NOTE: The code will not work with debugging on while not connected to a computer
@@ -48,8 +48,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define loraSerial (Serial1)							// Assign the loraSerial a name
 
-const long interval = 1000;								// interval at which to blink (milliseconds)
-unsigned long previousMillis = 0;						// will store last time LED was updated
+const long interval = 300000;							// Interval at which to send (milliseconds). Set to 5 minute to meet the TTN fair use policy.
+unsigned long previousMillis = 0;						// Store last time the TTN was updated
+unsigned long currentMillis = interval;					// The current time in mS set to interval so it send on the first run
+
 
 LoRamDot loRaWAN;										// Initialise the LoRamDot library
 
@@ -107,21 +109,34 @@ void setup()
 
 void loop()
 {
-	// Delay 5 mins.
-	// Note: There are limits on the The Things Network to how much data can be sent and for how long.
-	unsigned long currentMillis = millis();
+#ifdef DEBUG
+	delay(5000);
+	DEBUG_PRINT("Current: " + String(currentMillis));
+	DEBUG_PRINT(" - Previous: " + String(previousMillis));
+	DEBUG_PRINTLN(" = " + String(currentMillis - previousMillis));
+#endif // DEBUG
 
-	if (currentMillis - previousMillis >= 300000)
+	// Only send if the interval has been reached
+	if (currentMillis - previousMillis >= interval)
 	{
 		previousMillis = currentMillis;
 
 		String myMessage = "Test";
 
-		DEBUG_PRINTLN("SENDING MESSAGE: " + String(myMessage));
+		DEBUG_PRINTLN("SENDING MESSAGE: " + myMessage);
 		loRaWAN.Send(myMessage);
-		
+
 		// NOTE: If there is no response it is likely your TTN settings are not correct.
 		DEBUG_PRINTLN("RESPONSE: " + loRaWAN.LastResponse());
+	}
+
+	currentMillis = millis();
+
+	// Check if we have exceeded the 50 day limit
+	if (currentMillis < previousMillis)
+	{
+		// We've exceeded the counter so reset previous time to 0 also
+		previousMillis = 0;
 	}
 }
 
