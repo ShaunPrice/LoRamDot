@@ -19,15 +19,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////
-#define VERSION "0.2.0001"	// Code version (major.minor.build) 
+#define VERSION "0.2.0002"	// Code version (major.minor.build) 
 ////////////////////////////////////////////////////////////////
 //#define DEBUG 1           // Uncomment for debugging.
 							// NOTE: The code will not work with debugging on while not connected to a computer
 ////////////////////////////////////////////////////////////////
 
 #ifdef DEBUG
-#define DEBUG_PRINT(x)  Serial.print (x)
-#define DEBUG_PRINTLN(x)  Serial.println (x)
+#define DEBUG_PRINT(x)  Serial.print(x)
+#define DEBUG_PRINTLN(x)  Serial.println(x)
 #else
 #define DEBUG_PRINT(x)
 #define DEBUG_PRINTLN(x)
@@ -117,7 +117,7 @@ void loop()
 
 		String myMessage = "Test";
 
-		DEBUG_PRINTLN("SENDING MESSAGE: " + String(encoded));
+		DEBUG_PRINTLN("SENDING MESSAGE: " + String(myMessage));
 		loRaWAN.Send(myMessage);
 		
 		// NOTE: If there is no response it is likely your TTN settings are not correct.
